@@ -1,0 +1,15 @@
+# Node
+node_modules/
+
+# macOS
+.DS_Store
+
+# Qiita CLI（生成される場合がある）
+.qiita/
+
+# env（トークン等が入る可能性）
+.env
+.env.*
+
+# editor / tools
+.remote

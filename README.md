@@ -3,7 +3,7 @@
 Qiita記事をGitHubで管理するリポジトリです（Qiita CLI運用）。
 
 ## Links
-- Qiita:（あなたのQiitaプロフィールURL）
+- Qiita: https://qiita.com/ko_nagai_0801
 - GitHub: https://github.com/ko-nagai-0801
 
 ## Articles

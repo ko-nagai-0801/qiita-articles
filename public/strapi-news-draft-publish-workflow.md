@@ -1,13 +1,13 @@
 ---
-title: "StrapiでNewsを「下書き→公開」で回す（Draft & Publish + Next.jsプレビュー運用）"
+title: StrapiでNewsを「下書き→公開」で回す（Draft & Publish + Next.jsプレビュー運用）
 tags:
-  - Strapi
-  - Next.js
-  - HeadlessCMS
   - Security
+  - Next.js
+  - strapi
+  - HeadlessCMS
 private: false
-updated_at: ""
-id: null
+updated_at: '2025-12-21T23:40:50+09:00'
+id: 6333f5e16d5c35e7650e
 organization_url_name: null
 slide: false
 ignorePublish: false

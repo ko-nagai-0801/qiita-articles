@@ -5,8 +5,8 @@ tags:
   - Next.js
   - strapi
   - HeadlessCMS
-private: true
-updated_at: '2025-12-21T21:32:00+09:00'
+private: false
+updated_at: '2025-12-21T21:28:53+09:00'
 id: d9977cecb58a1b3e9e95
 organization_url_name: null
 slide: false
@@ -101,7 +101,7 @@ async function fetchHome() {
 }
 ```
 
-Route Handlerはサーバー側で動くため、STRAPI_API_TOKEN をクライアントに露出させずにプレビューを実現できます。
+Route Handlerはサーバー側で動くため、`STRAPI_API_TOKEN` をクライアントに露出させずにプレビューを実現できます。
 
 ### プレビュー（トークン付き、サーバー限定）
 

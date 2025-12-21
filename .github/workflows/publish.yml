@@ -3,9 +3,7 @@ name: Publish articles
 
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [main, master]
   workflow_dispatch:
 
 permissions:
@@ -16,14 +14,44 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  publish_articles:
+  publish:
+    # botが自分でpushしたコミットで無限ループしないようにする
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 5
+
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: increments/qiita-cli/actions/publish@v1
+
+      - uses: actions/setup-node@v4
         with:
-          qiita-token: ${{ secrets.QIITA_TOKEN }}
-          root: "."
+          node-version: "20"
+
+      - run: npm i -g @qiita/qiita-cli@v1.7.0
+
+      # Qiitaの最新メタデータ(updated_at等)を先に取り込む
+      - name: Sync from Qiita
+        env:
+          QIITA_TOKEN: ${{ secrets.QIITA_TOKEN }}
+        run: qiita pull --all --root .
+
+      # publish
+      - name: Publish to Qiita
+        env:
+          QIITA_TOKEN: ${{ secrets.QIITA_TOKEN }}
+        run: qiita publish --all --root .
+
+      # pull/publishで frontmatter が更新されるので、それをリポジトリへ反映
+      - name: Commit changes if any
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore: sync qiita metadata"
+            git push
+          else
+            echo "No changes to commit."
+          fi

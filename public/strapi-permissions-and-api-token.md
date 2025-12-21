@@ -6,7 +6,7 @@ tags:
   - Strapi
   - HeadlessCMS
 private: false
-updated_at: '2025-12-21T21:28:53+09:00'
+updated_at: ""
 id: d9977cecb58a1b3e9e95
 organization_url_name: null
 slide: false

@@ -1,13 +1,13 @@
 ---
-title: "Strapi + Next.jsでLPを作るときのコンテンツモデル設計（運用しやすさ重視）"
+title: Strapi + Next.jsでLPを作るときのコンテンツモデル設計（運用しやすさ重視）
 tags:
-  - Strapi
   - Next.js
+  - strapi
   - HeadlessCMS
   - CMS設計
 private: true
-updated_at: ""
-id: null
+updated_at: '2025-12-21T13:46:28+09:00'
+id: faaaa52d9e826f958c3a
 organization_url_name: null
 slide: false
 ignorePublish: false

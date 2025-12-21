@@ -1,13 +1,13 @@
 ---
-title: "Next.js(App Router) + Strapi News の最小構成（一覧/詳細/プレビュー表示ページ）"
+title: Next.js(App Router) + Strapi News の最小構成（一覧/詳細/プレビュー表示ページ）
 tags:
-  - Next.js
-  - Strapi
-  - HeadlessCMS
   - Security
+  - Next.js
+  - strapi
+  - HeadlessCMS
 private: true
-updated_at: ""
-id: null
+updated_at: '2025-12-22T06:30:18+09:00'
+id: 1ddb676b864d4e1c14f9
 organization_url_name: null
 slide: false
 ignorePublish: false

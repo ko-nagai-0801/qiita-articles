@@ -5,8 +5,8 @@ tags:
   - Next.js
   - strapi
   - HeadlessCMS
-private: true
-updated_at: '2025-12-22T06:35:43+09:00'
+private: false
+updated_at: ''
 id: 1ddb676b864d4e1c14f9
 organization_url_name: null
 slide: false

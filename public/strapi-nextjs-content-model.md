@@ -5,7 +5,7 @@ tags:
   - strapi
   - HeadlessCMS
   - CMS設計
-private: true
+private: false
 updated_at: '2025-12-21T13:46:28+09:00'
 id: faaaa52d9e826f958c3a
 organization_url_name: null
@@ -90,5 +90,7 @@ Strapi（管理画面）で「非エンジニアでも更新できる」状態�
 - 変更頻度でモデルを分けると保守がラク
 - Next.jsは「表示都合」で必要最小限の形に寄せる
 
-## 参考（リポジトリ）
-- （後でGitHubのURLを貼る）
+## リポジトリ（Docs as Code）
+- GitHub: https://github.com/ko-nagai-0801/qiita-articles
+- GitHub Actionsで `main` へのpushをトリガーに Qiitaへ自動投稿しています（Qiita CLI + Actions）
+

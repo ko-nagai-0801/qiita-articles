@@ -3,7 +3,7 @@ title: Strapiの権限設計（Roles/Permissions）とAPI Token運用（Next.js�
 tags:
   - Security
   - Next.js
-  - strapi
+  - Strapi
   - HeadlessCMS
 private: true
 updated_at: '2025-12-21T21:28:53+09:00'
@@ -100,6 +100,8 @@ async function fetchHome() {
   return res.json();
 }
 ```
+
+Route Handlerはサーバー側で動くため、STRAPI_API_TOKEN をクライアントに露出させずにプレビューを実現できます。
 
 ### プレビュー（トークン付き、サーバー限定）
 

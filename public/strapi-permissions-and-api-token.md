@@ -1,10 +1,10 @@
 ---
-title: Strapiの権限設計（Roles/Permissions）とAPI Token運用（Next.js連携の実務メモ）
+title: "Strapiの権限設計（Roles/Permissions）とAPI Token運用（Next.js連携の実務メモ）"
 tags:
-  - Security
+  - Strapi
   - Next.js
-  - strapi
   - HeadlessCMS
+  - Security
 private: true
 updated_at: '2025-12-21T20:20:48+09:00'
 id: d9977cecb58a1b3e9e95
@@ -29,16 +29,23 @@ Next.js（App Router）からの取得を前提に、**漏洩しにくい運用*
 
 ---
 
+## Draft & Publish（下書き→公開）を使う前提の注意点
+- Publicに `find / findOne` を許可しても、**下書き（draft）が漏れない**ことを実機で確認する
+- プレビュー（下書き表示）が必要な場合は、**サーバー側でトークン付き取得**＋**プレビューURLの保護**を行う
+- “Publicに許可する範囲” と “プレビューでのみ見せる範囲” を分離する
+
+---
+
 ## Strapiの権限モデルの基本
 ### Roles（ロール）
 - **Public**：未ログインの利用者（Web閲覧者）
-- **Authenticated**：ログイン済みユーザー
+- **Authenticated**：ログイン済みユーザー（会員機能がある場合）
 - **Admin**：管理画面ユーザー（編集者/管理者）
 
 ### Permissions（権限）
-各API（content type）に対して
-- find / findOne / create / update / delete  
-などをロールごとに許可/不許可を設定する。
+各API（Content Type）に対して、ロールごとに
+- `find` / `findOne` / `create` / `update` / `delete`  
+などの許可・不許可を設定する。
 
 ---
 
@@ -49,7 +56,7 @@ Next.js（App Router）からの取得を前提に、**漏洩しにくい運用*
 - News（Collection Type）の `find` / `findOne`（公開済みのみ返す設計が望ましい）
 
 ### Publicで禁止する例
-- create / update / delete 全般
+- `create` / `update` / `delete` 全般
 - 下書き、内部メモ、問い合わせ管理など
 
 ---
@@ -71,17 +78,11 @@ Next.js（App Router）からの取得を前提に、**漏洩しにくい運用*
 ### 環境変数例
 - `STRAPI_URL`
 - `STRAPI_API_TOKEN`（必要なら）
+- `PREVIEW_KEY`（プレビューURL保護に使う簡易キー）
 
 ---
 
 ## 実装例（Next.js App Router）
-
-### 環境変数
-- `STRAPI_URL`：StrapiのURL
-- `STRAPI_API_TOKEN`：プレビュー/非公開取得用（サーバー側のみで使用）
-- `PREVIEW_KEY`：簡易プレビューキー（例）
-
-> 注意：`NEXT_PUBLIC_` が付く環境変数はクライアントに露出するので、トークン用途には使いません。
 
 ### 公開データ（トークン無しで取得）
 例：Home（Single Type）
@@ -91,23 +92,45 @@ Next.js（App Router）からの取得を前提に、**漏洩しにくい運用*
 async function fetchHome() {
   const base = process.env.STRAPI_URL!;
   const res = await fetch(`${base}/api/home?populate=deep`, {
+    // 公開データならキャッシュ戦略をここで決める
     next: { revalidate: 60 },
   });
+
   if (!res.ok) throw new Error("Failed to fetch home");
   return res.json();
 }
 
+// app/api/preview/home/route.ts 例（Route Handler）
+import { NextResponse } from "next/server";
 
----
+export async function GET(req: Request) {
+  const url = new URL(req.url);
 
-## よくある落とし穴
-- Publicに広く権限を付けすぎて **非公開情報が漏れる**
-- トークンを `NEXT_PUBLIC_` で持ってしまい **ブラウザに漏れる**
-- Newsに `draft/publish` があるのに、Publicが下書きまで取得してしまう
+  // 例：簡易的なプレビューキー（実務なら署名付きに寄せる）
+  if (url.searchParams.get("key") !== process.env.PREVIEW_KEY) {
+    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+  }
 
----
+  const base = process.env.STRAPI_URL!;
+  const token = process.env.STRAPI_API_TOKEN!;
 
-## まとめ
-- Publicは最小限（必要な表示データのみ）
-- Tokenはサーバー側でのみ使用
-- “漏れたら困るデータ”を前提に設計する
+  // ※クエリパラメータはStrapiのバージョン/設定で差が出る場合があります
+  const res = await fetch(
+    `${base}/api/home?populate=deep&publicationState=preview`,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+      cache: "no-store",
+    }
+  );
+
+  if (!res.ok) {
+    return NextResponse.json(
+      { message: "Failed to fetch preview" },
+      { status: 500 }
+    );
+  }
+
+  const data = await res.json();
+  return NextResponse.json(data);
+}
+

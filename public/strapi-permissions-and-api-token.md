@@ -75,7 +75,28 @@ Next.js（App Router）からの取得を前提に、**漏洩しにくい運用*
 ---
 
 ## 実装例（Next.js App Router）
-（※この節にfetchコードを載せる）
+
+### 環境変数
+- `STRAPI_URL`：StrapiのURL
+- `STRAPI_API_TOKEN`：プレビュー/非公開取得用（サーバー側のみで使用）
+- `PREVIEW_KEY`：簡易プレビューキー（例）
+
+> 注意：`NEXT_PUBLIC_` が付く環境変数はクライアントに露出するので、トークン用途には使いません。
+
+### 公開データ（トークン無しで取得）
+例：Home（Single Type）
+
+```ts
+// app/(site)/page.tsx など（Server Component想定）
+async function fetchHome() {
+  const base = process.env.STRAPI_URL!;
+  const res = await fetch(`${base}/api/home?populate=deep`, {
+    next: { revalidate: 60 },
+  });
+  if (!res.ok) throw new Error("Failed to fetch home");
+  return res.json();
+}
+
 
 ---
 

@@ -3,10 +3,10 @@ title: Strapiの権限設計（Roles/Permissions）とAPI Token運用（Next.js�
 tags:
   - Security
   - Next.js
-  - Strapi
+  - strapi
   - HeadlessCMS
 private: true
-updated_at: '2025-12-21T21:28:53+09:00'
+updated_at: '2025-12-21T21:32:00+09:00'
 id: d9977cecb58a1b3e9e95
 organization_url_name: null
 slide: false

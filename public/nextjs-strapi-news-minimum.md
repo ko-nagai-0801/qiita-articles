@@ -168,9 +168,8 @@ http://localhost:3000/preview/news/some-slug?key=YOUR_KEY
 
 ---
 
-## 次の改善（必要なら）
+## 次の改善（任意だけど強い）
 
-- `PREVIEW_KEY` を「署名付き（HMAC）」にして、slug まで含めて改ざん耐性を上げる
-- IP制限（社内/自宅のみ）や Basic 認証を併用
-- `/preview/news` ページ側に「slug 入力フォーム」を作って運用しやすくする
-~~~
+- `PREVIEW_KEY` を **署名付き（HMAC）** にして、`slug` まで含めた検証にする（URL改ざん耐性を上げる）
+- **IP制限 / Basic認証** を併用して、プレビューURL自体への到達を絞る
+- `/preview/news` 側に **slug入力フォーム** を作り、編集者がURLを組み立てずに運用できるようにする

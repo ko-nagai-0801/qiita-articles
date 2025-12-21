@@ -3,7 +3,7 @@ title: Strapiの権限設計（Roles/Permissions）とAPI Token運用（Next.js�
 tags:
   - Security
   - Next.js
-  - strapi
+  - Strapi
   - HeadlessCMS
 private: true
 updated_at: '2025-12-21T21:16:45+09:00'
@@ -99,7 +99,11 @@ async function fetchHome() {
   if (!res.ok) throw new Error("Failed to fetch home");
   return res.json();
 }
+```
 
+### プレビュー（トークン付き、サーバー限定）
+
+```ts
 // app/api/preview/home/route.ts 例（Route Handler）
 import { NextResponse } from "next/server";
 
@@ -133,4 +137,4 @@ export async function GET(req: Request) {
   const data = await res.json();
   return NextResponse.json(data);
 }
-
+```

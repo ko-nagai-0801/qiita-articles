@@ -9,7 +9,7 @@ Qiita記事をGitHubで管理するリポジトリです（Qiita CLI運用）。
 ## Qiita articles (Docs as Code)
 
 - Strapi + Next.jsでLPを作るときのコンテンツモデル設計（運用しやすさ重視）
-  - Qiita（限定共有）: https://qiita.com/ko_nagai_0801/items/faaaa52d9e826f958c3a
+  - Qiita: https://qiita.com/ko_nagai_0801/items/faaaa52d9e826f958c3a
   - 管理リポジトリ: https://github.com/ko-nagai-0801/qiita-articles
 
 ### Publishing flow

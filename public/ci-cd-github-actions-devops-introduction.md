@@ -1,14 +1,14 @@
 ---
 title: 【初心者】GitHub ActionsのCI/CDを最小構成で理解する（YAMLの読み方＋失敗ログの追い方）
 tags:
-  - GitHubActions
   - CI
-  - CD
+  - devops
   - YAML
-  - DevOps
+  - cd
+  - GitHubActions
 private: false
-updated_at: ''
-id: ''
+updated_at: '2025-12-27T15:03:28+09:00'
+id: 8b1ebe7c7085c21340a5
 organization_url_name: null
 slide: false
 ignorePublish: false

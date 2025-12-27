@@ -7,7 +7,7 @@ tags:
   - cd
   - GitHubActions
 private: false
-updated_at: '2025-12-27T15:03:28+09:00'
+updated_at: '2025-12-27T15:25:48+09:00'
 id: 8b1ebe7c7085c21340a5
 organization_url_name: null
 slide: false

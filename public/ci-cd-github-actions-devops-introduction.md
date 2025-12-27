@@ -2,10 +2,10 @@
 title: 【初心者】GitHub ActionsのCI/CDを最小構成で理解する（YAMLの読み方＋失敗ログの追い方）
 tags:
   - GitHubActions
-  - CI/CD
+  - CI
+  - CD
   - YAML
   - DevOps
-  - Jenkins
 private: false
 updated_at: ''
 id: ''

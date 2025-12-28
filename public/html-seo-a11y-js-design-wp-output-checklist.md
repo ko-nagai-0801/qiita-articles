@@ -2,13 +2,13 @@
 title: 【教材】ツッコミどころ満載なHTMLで学ぶ「SEO / A11y / JS設計」チェックリスト（WP出力あるある付き）
 tags:
   - HTML
-  - SEO
-  - アクセシビリティ
   - JavaScript
   - WordPress
+  - SEO
+  - アクセシビリティ
 private: false
-updated_at: ''
-id: ''
+updated_at: '2025-12-28T11:26:03+09:00'
+id: 1664b105c19d9e222afb
 organization_url_name: null
 slide: false
 ignorePublish: false

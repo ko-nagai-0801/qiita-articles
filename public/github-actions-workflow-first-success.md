@@ -1,13 +1,13 @@
 ---
 title: 【初心者】GitHub Actionsのワークフローを自分で書いて動かす（リポジトリ作成〜初回成功まで）
 tags:
-  - GitHubActions
   - CI
-  - YAML
   - 初心者
+  - YAML
+  - GitHubActions
 private: false
-updated_at: '2025-01-01T00:00:00+09:00'
-id: null
+updated_at: '2026-01-10T11:06:10+09:00'
+id: f5a5082bdb9a7c3cb9f0
 organization_url_name: null
 slide: false
 ignorePublish: false

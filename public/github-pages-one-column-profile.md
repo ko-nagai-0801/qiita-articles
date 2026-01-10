@@ -3,11 +3,11 @@ title: 【超初心者】HTML/CSSで1枚ページを作ってGitHub Pagesで公�
 tags:
   - HTML
   - CSS
-  - GitHubPages
   - 初心者
+  - GithubPages
 private: false
-updated_at: '2025-01-01T00:00:00+09:00'
-id: null
+updated_at: '2026-01-10T12:20:05+09:00'
+id: 8b7c6721fe3485e28866
 organization_url_name: null
 slide: false
 ignorePublish: false

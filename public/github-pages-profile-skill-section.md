@@ -3,11 +3,11 @@ title: 【超初心者】自己紹介ページにスキル一覧を追加する�
 tags:
   - HTML
   - CSS
-  - GitHubPages
   - 初心者
+  - GithubPages
 private: false
-updated_at: '2025-01-01T00:00:00+09:00'
-id: null
+updated_at: '2026-01-10T17:32:06+09:00'
+id: f60e13c67dd36ccceaef
 organization_url_name: null
 slide: false
 ignorePublish: false

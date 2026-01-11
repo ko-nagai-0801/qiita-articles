@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "qiita:pull": "npx qiita pull --root .",
+    "qiita:pull:move": "npm run qiita:pull && node scripts/qiita-pull-to-remote.js"
   },
   "keywords": [],
   "author": "",

@@ -6,8 +6,8 @@ tags:
   - YAML
   - GitHubActions
 private: false
-updated_at: '2026-01-10T11:06:10+09:00'
-id: f5a5082bdb9a7c3cb9f0
+updated_at: ""
+id: ""
 organization_url_name: null
 slide: false
 ignorePublish: false

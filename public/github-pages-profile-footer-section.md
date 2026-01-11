@@ -6,8 +6,8 @@ tags:
   - GitHubPages
   - 初心者
 private: false
-updated_at: '2025-01-01T00:00:00+09:00'
-id: null
+updated_at: ""
+id: ""
 organization_url_name: null
 slide: false
 ignorePublish: false

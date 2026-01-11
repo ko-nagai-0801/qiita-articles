@@ -6,8 +6,8 @@ tags:
   - strapi
   - HeadlessCMS
 private: false
-updated_at: '2025-12-21T22:08:23+09:00'
-id: d9977cecb58a1b3e9e95
+updated_at: ""
+id: ""
 organization_url_name: null
 slide: false
 ignorePublish: false

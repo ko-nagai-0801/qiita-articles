@@ -29,25 +29,7 @@ jobs:
 
       - run: npm i -g @qiita/qiita-cli@v1.7.0
 
-      # Qiita側にしか無い更新（updated_at等）を取り込む
-      - name: Sync from Qiita
-        env:
-          QIITA_TOKEN: ${{ secrets.QIITA_TOKEN }}
-        run: qiita pull --root .
-
       - name: Publish to Qiita
         env:
           QIITA_TOKEN: ${{ secrets.QIITA_TOKEN }}
         run: qiita publish --all --root .
-
-      - name: Commit changes if any
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add -A
-            git commit -m "chore: sync qiita metadata"
-            git push
-          else
-            echo "No changes to commit."
-          fi

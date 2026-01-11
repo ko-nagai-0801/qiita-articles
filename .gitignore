@@ -13,6 +13,7 @@ node_modules/
 
 # editor / tools
 .remote
+public/.remote/
 
 
 test.html

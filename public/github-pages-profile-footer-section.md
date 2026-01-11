@@ -1,0 +1,111 @@
+---
+title: 【超初心者】自己紹介ページにフッター/SNSまとめを追加する
+tags:
+  - HTML
+  - CSS
+  - GitHubPages
+  - 初心者
+private: false
+updated_at: '2025-01-01T00:00:00+09:00'
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+---
+
+**自己紹介ページの最後に「フッター」を置くだけで、完成度が一気に上がります。**  
+SNSやメールをまとめるだけで、見た目と導線が整います。
+
+---
+
+## この記事でやること（3行）
+
+- フッターセクションを追加する
+- SNSリンクをまとめる
+- 余白と文字サイズで見た目を整える
+
+## 対象読者
+
+- 1カラム自己紹介ページを作れた人
+- セクション追加に慣れてきた人
+
+---
+
+## 0. 追加する完成イメージ
+
+- ページ下部にフッター
+- SNSリンクが横並び
+- コピーライト表示
+
+---
+
+## 1. HTMLにセクションを追加する
+
+`index.html` の `<main class="profile">` の下、最後に追加します。
+
+~~~html
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>
+    <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://note.com/" target="_blank" rel="noopener">note</a>
+  </div>
+  <small>© 2026 Your Name</small>
+</footer>
+~~~
+
+---
+
+## 2. CSSを追加する
+
+`style.css` の最後に追加します。
+
+~~~css
+.site-footer {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #1d4ed8;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+~~~
+
+---
+
+## 3. よくあるつまずき
+
+- **リンクが見づらい**  
+  → 色を濃くするか `font-size` を上げる
+
+- **フッターが詰まる**  
+  → `margin-top` や `padding-top` を増やす
+
+- **見出しっぽく見えない**  
+  → `border-top` を入れると区切りが付く
+
+---
+
+## まとめ
+
+- フッターがあるだけで「完成感」が出る
+- SNSは2〜3個で十分
+- コピーライトは名前だけでもOK

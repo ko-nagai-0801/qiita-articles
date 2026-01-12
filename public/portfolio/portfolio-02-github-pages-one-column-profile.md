@@ -4,7 +4,7 @@ tags:
   - HTML
   - CSS
   - 初心者
-  - GithubPages
+  - GitHubPages
 private: false
 updated_at: '2026-01-12T16:11:49+09:00'
 id: 8b7c6721fe3485e28866
@@ -79,7 +79,7 @@ HTML/CSSがほぼ初めてでも、コピペで動かしながらGitHub Pagesで
       </p>
 
       <div class="links">
-        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">Twitter</a>
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X（Twitter）</a>
         <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </main>

@@ -154,6 +154,29 @@ p {
   text-decoration: underline;
 }
 
+.improvement-log {
+  margin-top: 12px;
+  padding: 10px;
+  background: #f8fafc;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #444;
+}
+
+.improvement-log h4 {
+  margin: 0 0 6px;
+  font-size: 12px;
+}
+
+.improvement-log ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.improvement-log li {
+  margin-bottom: 6px;
+}
+
 .timeline {
   margin-top: 36px;
   text-align: left;

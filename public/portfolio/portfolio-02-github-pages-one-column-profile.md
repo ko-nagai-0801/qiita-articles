@@ -1,12 +1,12 @@
 ---
 title: 【超初心者】HTML/CSSで1枚ページを作ってGitHub Pagesで公開する最短手順
 tags:
-- HTML
-- CSS
-- 初心者
-- GitHubPages
+  - HTML
+  - CSS
+  - 初心者
+  - GithubPages
 private: false
-updated_at: '2026-01-11T11:00:12+09:00'
+updated_at: '2026-01-12T16:11:49+09:00'
 id: 8b7c6721fe3485e28866
 organization_url_name: null
 slide: false

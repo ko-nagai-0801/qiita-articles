@@ -4,9 +4,9 @@ tags:
   - HTML
   - CSS
   - 初心者
-  - GitHubPages
+  - GithubPages
 private: false
-updated_at: '2026-01-11T11:00:13+09:00'
+updated_at: '2026-01-12T16:11:53+09:00'
 id: fac23b3f21ee9e306666
 organization_url_name: null
 slide: false

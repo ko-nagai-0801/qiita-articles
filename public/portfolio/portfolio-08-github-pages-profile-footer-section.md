@@ -4,7 +4,7 @@ tags:
   - HTML
   - CSS
   - 初心者
-  - GithubPages
+  - GitHubPages
 private: false
 updated_at: '2026-01-11T11:00:13+09:00'
 id: bc964207dad0c8ff10a8
@@ -13,68 +13,99 @@ slide: false
 ignorePublish: false
 ---
 
-**自己紹介ページの最後に「フッター」を置くだけで、完成度が一気に上がります。**  
-SNSやメールをまとめるだけで、見た目と導線が整います。
+**ページの最後にフッターを置くだけで「完成感」が一気に上がります。**  
+SNSリンクをまとめて、コピーライトを添えるだけでOKです。
 
 ---
 
-## この記事でやること（3行）
+## デモ / リポジトリ（公開後に差し替えOK）
 
-- フッターセクションを追加する
-- SNSリンクをまとめる
-- 余白と文字サイズで見た目を整える
+- デモ（GitHub Pages）：`https://ユーザー名.github.io/リポジトリ名/`
+- リポジトリ（GitHub）：`https://github.com/ユーザー名/リポジトリ名`
 
-## 対象読者
+---
 
-- 1カラム自己紹介ページを作れた人
-- セクション追加に慣れてきた人
+## この記事でできるようになること（3行）
+
+- フッターを追加してページを締められる  
+- SNSリンクをまとめて見やすくできる  
+- 「上に戻る」導線を付けられる（任意）  
 
 ---
 
 ## 0. 追加する完成イメージ
 
-- ページ下部にフッター
+- ページ下部に区切り線
 - SNSリンクが横並び
 - コピーライト表示
+- （任意）上に戻るリンク
 
 ---
 
-## 1. HTMLにセクションを追加する
+## 1. HTMLにフッターを追加する（コピペOK）
 
-`index.html` の `<main class="profile">` の下、最後に追加します。
+`index.html` の `</main>` の直後に追加してください。
 
-~~~html
-<footer class="site-footer">
-  <div class="footer-links">
-    <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>
-    <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://note.com/" target="_blank" rel="noopener">note</a>
+```html
+<footer class="site-footer" aria-label="フッター">
+  <div class="footer-inner">
+    <a class="to-top" href="#top">↑ 上に戻る</a>
+
+    <nav class="footer-links" aria-label="外部リンク">
+      <a href="https://github.com/ユーザー名" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://x.com/ユーザー名" target="_blank" rel="noopener noreferrer">X（Twitter）</a>
+      <a href="mailto:yourname@example.com">Email</a>
+    </nav>
+
+    <small class="copyright">© 2026 あなたの名前</small>
   </div>
-  <small>© 2026 Your Name</small>
 </footer>
-~~~
+```
+
+### 重要：`#top` を使う場合
+ページの一番上（`<body>`直後など）に、次を1行入れてください。
+
+```html
+<div id="top"></div>
+```
+
+> これで「↑ 上に戻る」が動きます。
 
 ---
 
-## 2. CSSを追加する
+## 2. CSSを追加する（コピペOK）
 
-`style.css` の最後に追加します。
+`style.css` の末尾に追記してください。
 
-~~~css
+```css
+/* ===== Footer ===== */
 .site-footer {
   margin-top: 28px;
   padding-top: 16px;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
   text-align: center;
-  color: #6b7280;
-  font-size: 12px;
+}
+
+.footer-inner {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 0 16px 24px;
+}
+
+.to-top {
+  display: inline-block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.75);
 }
 
 .footer-links {
   display: flex;
-  gap: 12px;
   justify-content: center;
-  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
 .footer-links a {
@@ -87,25 +118,38 @@ SNSやメールをまとめるだけで、見た目と導線が整います。
 .footer-links a:hover {
   text-decoration: underline;
 }
-~~~
+
+.copyright {
+  font-size: 12px;
+  opacity: 0.75;
+}
+```
 
 ---
 
 ## 3. よくあるつまずき
 
-- **リンクが見づらい**  
-  → 色を濃くするか `font-size` を上げる
-
 - **フッターが詰まる**  
-  → `margin-top` や `padding-top` を増やす
+  → `margin-top` / `padding-top` を増やす（例：+8px）
 
-- **見出しっぽく見えない**  
-  → `border-top` を入れると区切りが付く
+- **リンクが折り返されない**  
+  → `.footer-links` に `flex-wrap: wrap;` があるか確認
+
+- **「上に戻る」が動かない**  
+  → `id="top"` をページ上部に置いたか確認
 
 ---
 
 ## まとめ
 
-- フッターがあるだけで「完成感」が出る
-- SNSは2〜3個で十分
-- コピーライトは名前だけでもOK
+- フッターがあるだけで「完成感」が出る  
+- SNSは2〜3個で十分  
+- コピーライトは名前だけでもOK  
+
+---
+
+## 次に読む
+
+- 【超初心者】自己紹介ページの見た目を整える（配色・余白・タイポグラフィ）  
+  → ページが一通り揃ったら、最後は「見た目の統一感」を整えると印象が上がります。  
+  https://qiita.com/ko_nagai_0801/items/a1ff303ec29d9c2ace8f

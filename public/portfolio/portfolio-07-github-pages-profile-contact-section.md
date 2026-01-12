@@ -4,7 +4,7 @@ tags:
   - HTML
   - CSS
   - 初心者
-  - GithubPages
+  - GitHubPages
 private: false
 updated_at: '2026-01-11T11:00:13+09:00'
 id: 0728ba92aea68d34ba85
@@ -13,177 +13,156 @@ slide: false
 ignorePublish: false
 ---
 
-**自己紹介ページに「連絡先」を追加して、次のアクションにつなげます。**  
-フォームを置く方法と、ボタン（CTA）だけの軽い方法を紹介します。
+**ポートフォリオは「連絡できる」だけで完成度が上がります。**  
+GitHub Pagesはサーバー処理ができないので、まずは **CTA（ボタン）** で連絡手段を用意します。
 
 ---
 
-## この記事でやること（3行）
+## デモ / リポジトリ（公開後に差し替えOK）
 
-- 連絡先セクションを追加する
-- フォーム版 / CTA版のどちらかを選ぶ
-- 見た目を崩さずに整える
+- デモ（GitHub Pages）：`https://ユーザー名.github.io/リポジトリ名/`
+- リポジトリ（GitHub）：`https://github.com/ユーザー名/リポジトリ名`
 
-## 対象読者
+---
 
-- 1カラム自己紹介ページを作れた人
-- セクション追加に慣れてきた人
+## この記事でできるようになること（3行）
+
+- 「Contact」セクションを追加できる  
+- ボタン（CTA）で迷わない導線を作れる  
+- GitHub Pagesでも使える連絡手段を選べる  
+
+---
+
+## 先に結論（迷ったらこれ）
+
+- GitHub Pagesなら、まずは **メール（mailto）＋SNS＋GitHub** のCTAで十分です  
+- フォームが欲しい場合は **Googleフォーム等の外部サービス** にリンクします（自前フォームは不可）
 
 ---
 
 ## 0. 追加する完成イメージ
 
-- 「Contact」見出しの下に連絡先
-- フォーム（名前・メール・内容） or CTAボタン
-- 1カラムの流れに自然に入る
+- 「Contact」見出し
+- 一言メッセージ
+- ボタンが2〜3個（メール / GitHub / X など）
 
 ---
 
-## 1. HTMLにセクションを追加する
+## 1. HTMLにContactセクションを追加する（コピペOK）
 
-`index.html` の `<main class="profile">` 内、実績リストの下に追加します。
+`index.html` の `<main class="profile">` 内、最後の方（実績の下など）に追加してください。
 
-### フォーム版
-
-~~~html
-<section class="contact">
+```html
+<section class="contact" aria-label="連絡先">
   <h2>Contact</h2>
-  <form class="contact-form">
-    <label>
-      お名前
-      <input type="text" placeholder="山田 太郎">
-    </label>
-    <label>
-      メール
-      <input type="email" placeholder="example@mail.com">
-    </label>
-    <label>
-      内容
-      <textarea rows="4" placeholder="メッセージを書いてください"></textarea>
-    </label>
-    <button type="button">送信</button>
-  </form>
+  <p class="contact-lead">
+    ご相談・ご連絡は、以下からお気軽にどうぞ。
+  </p>
+
+  <div class="contact-actions">
+    <a class="btn" href="mailto:yourname@example.com">メールで連絡</a>
+    <a class="btn btn-outline" href="https://github.com/ユーザー名" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a class="btn btn-outline" href="https://x.com/ユーザー名" target="_blank" rel="noopener noreferrer">X（Twitter）</a>
+  </div>
+
+  <p class="contact-note">
+    ※フォームが必要な場合は、Googleフォームなど外部フォームへのリンクにします。
+  </p>
 </section>
-~~~
+```
 
-> GitHub Pagesだけでは送信できないので、まずは見た目だけ作ります。
-
-### CTA版（軽め）
-
-~~~html
-<section class="contact">
-  <h2>Contact</h2>
-  <p>お仕事のご相談や質問はこちらから。</p>
-  <a class="contact-cta" href="https://twitter.com/" target="_blank" rel="noopener">
-    DMする
-  </a>
-</section>
-~~~
-
-> どちらか片方だけ使えばOKです。
+> `mailto:` のメールアドレスだけ、必ず自分用に差し替えてください。
 
 ---
 
-## 2. CSSを追加する
+## 2. CSSを追加する（コピペOK）
 
-`style.css` の最後に追加します。
+`style.css` の末尾に追記してください。
 
-### フォーム版のCSS
-
-~~~css
+```css
+/* ===== Contact ===== */
 .contact {
-  margin-top: 32px;
+  margin-top: 24px;
   text-align: left;
 }
 
 .contact h2 {
   font-size: 18px;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
 }
 
-.contact-form {
-  display: grid;
-  gap: 12px;
-}
-
-.contact-form label {
-  display: grid;
-  gap: 6px;
+.contact-lead {
   font-size: 13px;
-  color: #444;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  font-size: 14px;
-  font-family: inherit;
-}
-
-.contact-form button {
-  width: 160px;
-  padding: 10px 12px;
-  border: none;
-  border-radius: 8px;
-  background: #1d4ed8;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.contact-form button:hover {
+  margin: 0 0 12px;
   opacity: 0.9;
 }
-~~~
 
-### CTA版のCSS
-
-~~~css
-.contact {
-  margin-top: 32px;
-  text-align: left;
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.contact h2 {
-  font-size: 18px;
-  margin: 0 0 12px;
-}
-
-.contact-cta {
+/* ボタン（CTA） */
+.btn {
   display: inline-block;
-  padding: 10px 16px;
+  padding: 10px 12px;
+  border-radius: 12px;
   background: #1d4ed8;
   color: #fff;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 13px;
 }
 
-.contact-cta:hover {
-  opacity: 0.9;
+.btn:hover {
+  opacity: 0.92;
 }
-~~~
+
+.btn-outline {
+  background: #fff;
+  color: #1d4ed8;
+  border: 1px solid rgba(29, 78, 216, 0.35);
+}
+
+.contact-note {
+  margin: 12px 0 0;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+/* キーボード操作の見え方（任意だけどおすすめ） */
+.btn:focus-visible {
+  outline: 3px solid rgba(29, 78, 216, 0.35);
+  outline-offset: 2px;
+}
+```
 
 ---
 
 ## 3. よくあるつまずき
 
-- **フォームが送れない**  
-  → これは正常。GitHub Pages単体では送信できない
+- **メールボタンを押しても何も起きない**  
+  → 端末にメールアプリが設定されていない場合があります（その場合はSNSリンクも用意すると安心）
 
-- **ボタンが小さい**  
-  → `padding` を増やすと押しやすい
+- **ボタンが横に入り切らない**  
+  → `contact-actions` に `flex-wrap: wrap;` が入っているか確認
 
-- **文字が詰まる**  
-  → `gap` を広げると見やすい
+- **フォームを置きたい**  
+  → GitHub Pagesはサーバー処理がないので、外部フォームへのリンクが現実的です
 
 ---
 
 ## まとめ
 
-- 連絡先があると次のアクションにつながる
-- まずはCTAだけでも十分
-- フォーム送信は後から対応すればOK
+- 連絡先は「置くだけ」で完成度が上がる  
+- GitHub PagesならCTAが最短・安全  
+- フォームは外部サービスへのリンクでOK  
+
+---
+
+## 次に読む
+
+- 【超初心者】自己紹介ページにフッター/SNSまとめを追加する  
+  → 連絡導線を置いたら、最後はフッターで全体を締めると「完成作品」になります。  
+  https://qiita.com/ko_nagai_0801/items/bc964207dad0c8ff10a8

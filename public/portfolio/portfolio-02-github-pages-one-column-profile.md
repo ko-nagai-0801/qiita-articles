@@ -1,10 +1,10 @@
 ---
 title: 【超初心者】HTML/CSSで1枚ページを作ってGitHub Pagesで公開する最短手順
 tags:
-  - HTML
-  - CSS
-  - 初心者
-  - GithubPages
+- HTML
+- CSS
+- 初心者
+- GitHubPages
 private: false
 updated_at: '2026-01-11T11:00:12+09:00'
 id: 8b7c6721fe3485e28866
@@ -15,6 +15,13 @@ ignorePublish: false
 
 **「1ページ作って公開できた」を最短で体験するための記事です。**  
 HTML/CSSがほぼ初めてでも、コピペで動かしながらGitHub Pagesで公開まで進めます。
+
+---
+
+## デモ / リポジトリ（公開後に差し替えOK）
+
+- デモ（GitHub Pages）：`https://ユーザー名.github.io/リポジトリ名/`
+- リポジトリ（GitHub）：`https://github.com/ユーザー名/リポジトリ名`
 
 ---
 
@@ -53,7 +60,7 @@ HTML/CSSがほぼ初めてでも、コピペで動かしながらGitHub Pagesで
 
 `index.html` に以下を書きます。
 
-~~~html
+```html
 <!doctype html>
 <html lang="ja">
   <head>
@@ -70,16 +77,17 @@ HTML/CSSがほぼ初めてでも、コピペで動かしながらGitHub Pagesで
         ここに自己紹介を書きます。<br>
         例：Web制作の学習中。HTML/CSSが楽しいです。
       </p>
+
       <div class="links">
-        <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>
-        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">Twitter</a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </main>
   </body>
 </html>
-~~~
+```
 
-> 画像は仮のダミーです。あとで自分の画像URLに変えてOK。
+> 画像は仮のダミーです。あとで自分の画像URLに変えてOKです。
 
 ---
 
@@ -87,7 +95,7 @@ HTML/CSSがほぼ初めてでも、コピペで動かしながらGitHub Pagesで
 
 `style.css` に以下を書きます。
 
-~~~css
+```css
 body {
   margin: 0;
   font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
@@ -128,7 +136,7 @@ body {
 .links a:hover {
   text-decoration: underline;
 }
-~~~
+```
 
 ---
 
@@ -145,14 +153,14 @@ body {
 
 新規リポジトリを作成し、ローカルのファイルをpushします。
 
-~~~bash
+```bash
 git init
 git add .
-git commit -m "first profile page"
+git commit -m "初回の自己紹介ページを追加"
 git branch -M main
 git remote add origin https://github.com/ユーザー名/リポジトリ名.git
 git push -u origin main
-~~~
+```
 
 ---
 
@@ -190,4 +198,8 @@ git push -u origin main
 
 ---
 
-次は、色やフォントを変えて「自分らしさ」を出すと楽しくなります。
+## 次に読む
+
+- 【超初心者】自己紹介ページにスキル一覧を追加する（カード/バッジ）  
+  → 1ページができたら、次は**「何ができる人か」**を見せるとポートフォリオとして一気に強くなります。  
+  https://qiita.com/ko_nagai_0801/items/f60e13c67dd36ccceaef

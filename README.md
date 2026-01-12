@@ -16,3 +16,4 @@ Qiita記事をGitHubで管理するリポジトリです（Qiita CLI運用）。
 - Articles are managed as Markdown in this repository.
 - On push to `main`, GitHub Actions runs `qiita publish` (Qiita CLI) and updates Qiita automatically.
 - `QIITA_TOKEN` is stored in GitHub Secrets.
+- After any local `qiita publish`, run `npm run qiita:pull:move` to move ID-named files into `public/.remote/`.

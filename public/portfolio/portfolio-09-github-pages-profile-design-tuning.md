@@ -4,7 +4,7 @@ tags:
   - HTML
   - CSS
   - 初心者
-  - GithubPages
+  - GitHubPages
 private: false
 updated_at: '2026-01-11T11:00:12+09:00'
 id: a1ff303ec29d9c2ace8f
@@ -13,123 +13,162 @@ slide: false
 ignorePublish: false
 ---
 
-**内容はそのままでも「見た目の整え方」で完成度は大きく変わります。**  
-配色・余白・文字の3点だけを調整して、初心者でも一気にそれっぽく見せます。
+**見た目の“統一感”は、センスより「ルール」で作れます。**  
+今回は、自己紹介ページのデザインを **配色・余白・文字** の3点で整えます。
 
 ---
 
-## この記事でやること（3行）
+## デモ / リポジトリ（公開後に差し替えOK）
 
-- 色のルールを1つ決める
-- 余白を増やして見やすくする
-- 文字サイズと行間で読みやすくする
-
-## 対象読者
-
-- 1カラム自己紹介ページを作れた人
-- セクションが増えてきた人
+- デモ（GitHub Pages）：`https://ユーザー名.github.io/リポジトリ名/`
+- リポジトリ（GitHub）：`https://github.com/ユーザー名/リポジトリ名`
 
 ---
 
-## 0. 最初に決めること（たった1つ）
+## この記事でできるようになること（3行）
 
-**基準色を1つだけ決めます。**  
-例：青なら `#1d4ed8`。これをリンクやボタンに統一します。
+- 1つのページ全体に「統一ルール」を作れる  
+- 変数（CSSカスタムプロパティ）で配色を管理できる  
+- 余白と文字サイズを整えて読みやすくできる  
 
 ---
 
-## 1. 配色を整える
+## 先に結論（迷ったらこれ）
 
-`style.css` の先頭に「色の変数」を追加します。
+- 色は **メイン1色＋グレー** だけで十分  
+- 余白は **8の倍数**（8/16/24/32）で揃える  
+- 文字は **本文13px〜14px、見出し18px** くらいでOK  
 
-~~~css
+---
+
+## 0. 何を直すと「それっぽく」なるか
+
+- リンク色がバラバラ → 1色に統一
+- 余白が場当たり → ルール化
+- 文字が大小バラつく → 3段階に固定
+
+---
+
+## 1. CSSに「デザイントークン（変数）」を追加する（コピペOK）
+
+`style.css` の先頭付近に追加してください（`body` より上がおすすめ）。
+
+```css
 :root {
-  --bg: #f7f7f7;
-  --card: #ffffff;
-  --text: #222222;
-  --muted: #6b7280;
-  --accent: #1d4ed8;
-  --line: #e5e7eb;
+  /* 色（迷ったらこの2つでOK） */
+  --c-bg: #f7f7f7;
+  --c-text: #222;
+  --c-primary: #1d4ed8;
+
+  /* グレー（境界線や薄い文字） */
+  --c-border: rgba(0, 0, 0, 0.12);
+  --c-muted: rgba(0, 0, 0, 0.75);
+
+  /* 余白（8の倍数） */
+  --s-1: 8px;
+  --s-2: 16px;
+  --s-3: 24px;
+  --s-4: 32px;
+
+  /* 角丸 */
+  --radius: 12px;
+
+  /* 影（うっすら） */
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
-~~~
-
-次に、既存の色を変数で置き換えます。
-
-~~~css
-body {
-  background: var(--bg);
-  color: var(--text);
-}
-
-.profile {
-  background: var(--card);
-}
-
-.links a,
-.work-cards a,
-.contact-cta,
-.footer-links a {
-  color: var(--accent);
-}
-
-.timeline-list {
-  border-left: 2px solid var(--line);
-}
-~~~
-
-> これだけで「色の統一感」が出ます。
+```
 
 ---
 
-## 2. 余白を整える
+## 2. 既存CSSの色・余白を変数に置き換える（最低限）
 
-**余白を少し増やすだけで読みやすさが上がります。**
+まずは「効きやすいところだけ」置き換えればOKです。
 
-~~~css
+```css
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  background: var(--c-bg);
+  color: var(--c-text);
+}
+
 .profile {
-  padding: 40px 28px;
+  max-width: 560px;
+  margin: 40px auto;
+  background: #fff;
+  padding: var(--s-4) var(--s-3);
+  text-align: center;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
-.skills,
-.works,
-.timeline,
-.achievements,
-.contact {
-  margin-top: 36px;
+/* リンク色の統一 */
+a {
+  color: var(--c-primary);
 }
-~~~
+```
 
-> 1セクションずつ「間」を作るイメージです。
+> 置き換えは「一気に全部やらない」でOKです。まずは `body / profile / a` だけで効きます。
 
 ---
 
-## 3. タイポグラフィを整える
+## 3. 見出しサイズを統一する（各セクション共通）
 
-**文字のサイズと行間を揃えるだけで安定します。**
+各セクションに `h2` がある場合、見出しを同じサイズに揃えます。
 
-~~~css
-body {
-  line-height: 1.7;
-}
-
-h1 {
-  font-size: 26px;
-  margin: 16px 0 8px;
-}
-
-h2 {
+```css
+/* セクション見出し（h2）を統一 */
+.skills h2,
+.works h2,
+.timeline h2,
+.achievements h2,
+.contact h2 {
   font-size: 18px;
+  margin: 0 0 12px;
 }
+```
 
-p {
-  font-size: 14px;
+---
+
+## 4. “薄い文字”のルールを作る（説明文は少し薄く）
+
+```css
+/* 説明文は少し薄くして読みやすく */
+.profile p,
+.skill-card p,
+.work-body p,
+.timeline-text,
+.contact-lead,
+.achievements-note {
+  color: var(--c-muted);
 }
-~~~
+```
+
+---
+
+## 5. つまずきポイント
+
+- **変数が効かない**  
+  → `:root { ... }` がCSS内に入っているか確認
+
+- **色が濃すぎる/薄すぎる**  
+  → `--c-muted` の透明度を調整（0.6〜0.85の範囲でOK）
+
+- **置き換えが大変**  
+  → 最低限 `a` の色だけ統一でも効果があります
 
 ---
 
 ## まとめ
 
-- 色は1色に統一するだけで整う
-- 余白を増やすと読みやすくなる
-- 文字サイズと行間で雰囲気が決まる
+- 統一感は「ルール」で作れる  
+- 色はメイン1色、余白は8の倍数、文字は3段階でOK  
+- 変数を入れると“後からの調整”が爆速になる  
+
+---
+
+## 次に読む
+
+- 【超初心者】自己紹介ページをスマホで見やすくする（レスポンシブ調整）  
+  → 見た目が整ったら、次は「スマホでも崩れない」を仕上げると完成です。  
+  https://qiita.com/ko_nagai_0801/items/fac23b3f21ee9e306666

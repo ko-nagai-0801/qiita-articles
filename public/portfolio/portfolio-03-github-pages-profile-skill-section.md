@@ -4,7 +4,7 @@ tags:
   - HTML
   - CSS
   - 初心者
-  - GithubPages
+  - GitHubPages
 private: false
 updated_at: '2026-01-11T11:00:12+09:00'
 id: f60e13c67dd36ccceaef
@@ -14,88 +14,100 @@ ignorePublish: false
 ---
 
 **前回の1カラム自己紹介ページに「スキル一覧」を足して、見た目を一気に充実させます。**  
-HTMLとCSSを少し足すだけで、カード/バッジのどちらでも作れます。
+カード形式（説明あり）と、バッジ形式（スッキリ）の両方を用意したので、好みで選べます。
 
 ---
 
-## この記事でやること（3行）
+## デモ / リポジトリ（公開後に差し替えOK）
 
-- スキル一覧のセクションを追加する
-- カード版とバッジ版のどちらかを選ぶ
-- 見た目が「それっぽく」なるポイントを押さえる
+- デモ（GitHub Pages）：`https://ユーザー名.github.io/リポジトリ名/`
+- リポジトリ（GitHub）：`https://github.com/ユーザー名/リポジトリ名`
 
-## 対象読者
+---
 
-- 1カラム自己紹介ページを作れた人
-- HTML/CSSを少しずつ増やして慣れたい人
+## この記事でできるようになること（3行）
+
+- 自己紹介ページに「スキル一覧」セクションを追加できる  
+- カード/バッジの2パターンを作り分けできる  
+- スマホでも崩れない（1列）表示にできる  
+
+---
+
+## 前提
+
+- 02（1枚ページを作ってGitHub Pagesで公開）が終わっている想定です  
+  https://qiita.com/ko_nagai_0801/items/8b7c6721fe3485e28866
 
 ---
 
 ## 0. 追加する完成イメージ
 
-- 「Skills」見出しの下にスキル一覧
-- カード（2列） or バッジ（横並び）
-- どちらも1カラムの流れに自然に入る
+- 「Skills」見出しが追加される
+- カード：スキル名＋一言説明  
+- バッジ：スキル名だけをコンパクトに表示
 
 ---
 
-## 1. HTMLにセクションを追加する
+## 1. HTMLにスキルセクションを追加する（コピペOK）
 
-`index.html` の `<main class="profile">` の中、自己紹介文の下に追加します。
+`index.html` の `<main class="profile">` 内、自己紹介文の下（リンクの上でも下でもOK）に貼ってください。
 
-### カード版（おすすめ）
+### 1-1. カード形式（説明あり）
 
-~~~html
-<section class="skills">
+```html
+<section class="skills" aria-label="スキル一覧">
   <h2>Skills</h2>
-  <ul class="skill-cards">
-    <li>
+
+  <ul class="skills-cards">
+    <li class="skill-card">
       <h3>HTML</h3>
       <p>基本構造を作れる</p>
     </li>
-    <li>
+    <li class="skill-card">
       <h3>CSS</h3>
       <p>見た目を整えられる</p>
     </li>
-    <li>
+    <li class="skill-card">
       <h3>JavaScript</h3>
       <p>簡単な動きを付けられる</p>
     </li>
-    <li>
+    <li class="skill-card">
       <h3>GitHub</h3>
       <p>push / Pages公開ができる</p>
     </li>
   </ul>
 </section>
-~~~
+```
 
-### バッジ版（軽め）
+### 1-2. バッジ形式（スッキリ）
 
-~~~html
-<section class="skills">
+```html
+<section class="skills" aria-label="スキル一覧">
   <h2>Skills</h2>
-  <div class="skill-badges">
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>JavaScript</span>
-    <span>GitHub</span>
-  </div>
-</section>
-~~~
 
-> どちらか片方だけ使えばOKです。
+  <ul class="skills-badges">
+    <li class="badge">HTML</li>
+    <li class="badge">CSS</li>
+    <li class="badge">JavaScript</li>
+    <li class="badge">GitHub</li>
+  </ul>
+</section>
+```
+
+> どちらか片方だけ使えばOKです（両方は不要）。
 
 ---
 
-## 2. CSSを追加する
+## 2. CSSを追加する（コピペOK）
 
-`style.css` の最後に追加します。
+`style.css` の末尾に追記してください。
 
-### カード版のCSS
+### 2-1. 共通（見出し・余白）
 
-~~~css
+```css
+/* ===== Skills ===== */
 .skills {
-  margin-top: 28px;
+  margin-top: 24px;
   text-align: left;
 }
 
@@ -103,87 +115,94 @@ HTMLとCSSを少し足すだけで、カード/バッジのどちらでも作れ
   font-size: 18px;
   margin: 0 0 12px;
 }
+```
 
-.skill-cards {
+### 2-2. カード形式
+
+```css
+.skills-cards {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.skill-cards li {
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
+.skill-card {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
   padding: 12px;
-  background: #fafafa;
+  background: #fff;
 }
 
-.skill-cards h3 {
+.skill-card h3 {
+  font-size: 14px;
   margin: 0 0 6px;
-  font-size: 16px;
 }
 
-.skill-cards p {
-  margin: 0;
+.skill-card p {
   font-size: 13px;
-  color: #555;
+  margin: 0;
+  opacity: 0.9;
 }
 
-@media (max-width: 520px) {
-  .skill-cards {
+/* スマホは1列 */
+@media (max-width: 560px) {
+  .skills-cards {
     grid-template-columns: 1fr;
   }
 }
-~~~
+```
 
-### バッジ版のCSS
+### 2-3. バッジ形式
 
-~~~css
-.skills {
-  margin-top: 28px;
-  text-align: left;
-}
-
-.skills h2 {
-  font-size: 18px;
-  margin: 0 0 12px;
-}
-
-.skill-badges {
+```css
+.skills-badges {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-.skill-badges span {
-  background: #eef2ff;
-  color: #3730a3;
+.badge {
+  display: inline-block;
   padding: 6px 10px;
   border-radius: 999px;
-  font-size: 12px;
+  background: rgba(29, 78, 216, 0.08);
+  color: #1d4ed8;
+  font-size: 13px;
   font-weight: 600;
 }
-~~~
+```
 
 ---
 
-## 3. よくあるつまずき
+## 3. つまずきポイント
 
-- **2列が崩れる**  
-  → `grid-template-columns` が消えていないか確認
+- **カードが横並びにならない**  
+  → `skills-cards` の `display: grid;` が入っているか確認
 
-- **文字が大きすぎる**  
-  → `font-size` を1〜2px下げるだけで整う
+- **見出しが大きすぎる**  
+  → `.skills h2` の `font-size` を 16px にしてOK
 
-- **横がはみ出る**  
-  → `padding` を小さくするか、スマホ用1列にする
+- **スマホで横がはみ出る**  
+  → `@media (max-width: 560px)` の1列設定が入っているか確認
 
 ---
 
 ## まとめ
 
-- スキル一覧があると「やってる感」が一気に出る
-- カードは説明を書ける、バッジはスッキリ
-- まずはコピペでOK、後から自分仕様に変えれば十分
+- スキル一覧があると「やってる感」が一気に出る  
+- カード＝説明できる、バッジ＝スッキリ見える  
+- まずはコピペでOK、後から自分仕様に変えれば十分  
+
+---
+
+## 次に読む
+
+- 【超初心者】自己紹介ページに作品紹介を追加する（画像＋説明＋リンク）  
+  → 「できること」を見せたら、次は「作ったもの」を見せるとポートフォリオとして完成度が上がります。  
+  https://qiita.com/ko_nagai_0801/items/42adb3fa1f92001d7100

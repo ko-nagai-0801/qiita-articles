@@ -4,7 +4,7 @@ tags:
   - HTML
   - CSS
   - 初心者
-  - GithubPages
+  - GitHubPages
 private: false
 updated_at: '2026-01-11T11:00:12+09:00'
 id: 42adb3fa1f92001d7100
@@ -13,21 +13,32 @@ slide: false
 ignorePublish: false
 ---
 
-**1カラム自己紹介ページに「作品紹介」を追加して、ポートフォリオらしさを出します。**  
-画像・説明・リンクの3点セットだけで、見た目が一気に充実します。
+**1カラム自己紹介ページに「作品紹介（Works）」を追加して、ポートフォリオらしさを出します。**  
+画像＋説明＋リンクをセットにすると、読み手が迷いません。
 
 ---
 
-## この記事でやること（3行）
+## デモ / リポジトリ（公開後に差し替えOK）
 
-- 作品紹介セクションを追加する
-- 画像＋説明＋リンクの基本形を作る
-- レイアウトを崩さずに整える
+- デモ（GitHub Pages）：`https://ユーザー名.github.io/リポジトリ名/`
+- リポジトリ（GitHub）：`https://github.com/ユーザー名/リポジトリ名`
 
-## 対象読者
+---
 
-- 1カラム自己紹介ページを作れた人
-- スキル一覧を追加できた人
+## この記事でできるようになること（3行）
+
+- 「Works」セクションを追加できる  
+- 作品カード（画像＋説明＋リンク）を作れる  
+- 外部リンクの作法（`rel="noopener noreferrer"`）も揃えられる  
+
+---
+
+## 前提
+
+- 02（公開まで）  
+  https://qiita.com/ko_nagai_0801/items/8b7c6721fe3485e28866
+- 03（スキル一覧）※なくてもOKですが、あると流れが綺麗です  
+  https://qiita.com/ko_nagai_0801/items/f60e13c67dd36ccceaef
 
 ---
 
@@ -39,41 +50,60 @@ ignorePublish: false
 
 ---
 
-## 1. HTMLにセクションを追加する
+## 1. HTMLにWorksセクションを追加する（コピペOK）
 
-`index.html` の `<main class="profile">` 内、スキル一覧の下に追加します。
+`index.html` の `<main class="profile">` 内、スキル一覧の下あたりに追加してください。
 
-~~~html
-<section class="works">
+```html
+<section class="works" aria-label="作品紹介">
   <h2>Works</h2>
-  <div class="work-cards">
-    <article>
-      <img src="https://placehold.jp/560x320.png" alt="作品1のサムネイル">
-      <h3>作品タイトル1</h3>
-      <p>一言で内容を説明します。例：学習記録をまとめるWebサイト。</p>
-      <a href="https://example.com" target="_blank" rel="noopener">サイトを見る</a>
-    </article>
-    <article>
-      <img src="https://placehold.jp/560x320.png" alt="作品2のサムネイル">
-      <h3>作品タイトル2</h3>
-      <p>簡単に特徴を書きます。例：レスポンシブ対応のLP。</p>
-      <a href="https://example.com" target="_blank" rel="noopener">サイトを見る</a>
-    </article>
-  </div>
-</section>
-~~~
 
-> 画像は仮のダミーです。あとで自分の画像URLに差し替えてOK。
+  <ul class="works-list">
+    <li class="work-card">
+      <img
+        src="https://placehold.jp/640x360.png"
+        alt="作品のサムネイル"
+        width="640"
+        height="360"
+        loading="lazy"
+      >
+      <div class="work-body">
+        <h3>作品タイトル</h3>
+        <p>どんな作品かを1〜2行で説明します（誰に/何を/目的）。</p>
+        <a href="https://example.com" target="_blank" rel="noopener noreferrer">作品を見る</a>
+      </div>
+    </li>
+
+    <li class="work-card">
+      <img
+        src="https://placehold.jp/640x360.png"
+        alt="作品のサムネイル"
+        width="640"
+        height="360"
+        loading="lazy"
+      >
+      <div class="work-body">
+        <h3>作品タイトル2</h3>
+        <p>例：LP制作の練習として、シンプルな1ページサイトを作成。</p>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHubを見る</a>
+      </div>
+    </li>
+  </ul>
+</section>
+```
+
+> 画像URL・タイトル・説明文・リンク先だけ、自分の内容に差し替えればOKです。
 
 ---
 
-## 2. CSSを追加する
+## 2. CSSを追加する（コピペOK）
 
-`style.css` の最後に追加します。
+`style.css` の末尾に追記してください。
 
-~~~css
+```css
+/* ===== Works ===== */
 .works {
-  margin-top: 32px;
+  margin-top: 24px;
   text-align: left;
 }
 
@@ -82,63 +112,78 @@ ignorePublish: false
   margin: 0 0 12px;
 }
 
-.work-cards {
+.works-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: grid;
-  gap: 16px;
+  gap: 12px;
 }
 
-.work-cards article {
-  border: 1px solid #e5e7eb;
+.work-card {
+  border: 1px solid rgba(0,0,0,0.08);
   border-radius: 12px;
-  padding: 12px;
+  overflow: hidden;
   background: #fff;
 }
 
-.work-cards img {
+.work-card img {
   width: 100%;
-  border-radius: 8px;
+  height: auto;
   display: block;
 }
 
-.work-cards h3 {
-  margin: 12px 0 6px;
-  font-size: 16px;
+.work-body {
+  padding: 12px;
 }
 
-.work-cards p {
-  margin: 0 0 8px;
+.work-body h3 {
+  font-size: 14px;
+  margin: 0 0 6px;
+}
+
+.work-body p {
   font-size: 13px;
-  color: #555;
+  margin: 0 0 10px;
+  opacity: 0.9;
 }
 
-.work-cards a {
+.work-body a {
   color: #1d4ed8;
   text-decoration: none;
   font-weight: 600;
 }
 
-.work-cards a:hover {
+.work-body a:hover {
   text-decoration: underline;
 }
-~~~
+```
 
 ---
 
-## 3. よくあるつまずき
+## 3. つまずきポイント
 
-- **画像が大きすぎる**  
-  → CSSの `width: 100%` が入っているか確認
+- **画像が表示されない**  
+  → `src` のURLが正しいか確認（相対パスなら階層ミスが多い）
 
-- **カードの内側が詰まる**  
-  → `padding` を `12px` 以上にすると読みやすい
+- **カードがダサく見える**  
+  → `border-radius` と `overflow: hidden;` が入っているか確認（角丸が効く）
 
-- **リンクが押しづらい**  
-  → テキストは短くし、間隔を空ける
+- **外部リンクが不安**  
+  → `target="_blank"` を使う場合は必ず `rel="noopener noreferrer"` を付ける
 
 ---
 
 ## まとめ
 
-- 作品紹介があると「ポートフォリオ感」が一気に出る
-- 画像＋説明＋リンクの3点セットが基本
-- まずは2作品で十分、増やすのは後からでOK
+- 作品紹介は「画像＋説明＋リンク」の3点セットが強い  
+- 1作品目は“代表作”として丁寧に書くと印象が上がる  
+- 最初は2作品で十分。増やすより整えるほうが効く  
+
+---
+
+## 次に読む
+
+- 【超初心者】自己紹介ページに経歴タイムラインを追加する（縦線でそれっぽく）  
+  → 作品を見せたら、次は「いつ何をしてきたか」を見せると説得力が上がります。  
+  https://qiita.com/ko_nagai_0801/items/903c9911a42d4e2ea799

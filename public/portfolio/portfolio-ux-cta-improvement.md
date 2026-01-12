@@ -3,11 +3,11 @@ title: 【超初心者】ポートフォリオの導線改善（CTAと配置の�
 tags:
   - HTML
   - CSS
-  - ポートフォリオ
   - 初心者
+  - ポートフォリオ
 private: false
-updated_at: ""
-id: ""
+updated_at: '2026-01-12T10:18:23+09:00'
+id: 16e5c273e428f96e3e15
 organization_url_name: null
 slide: false
 ignorePublish: false

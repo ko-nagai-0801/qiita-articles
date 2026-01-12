@@ -3,11 +3,11 @@ title: 【超初心者】成果物の見せ方（サムネ・説明文・リン�
 tags:
   - HTML
   - CSS
-  - ポートフォリオ
   - 初心者
+  - ポートフォリオ
 private: false
-updated_at: ""
-id: ""
+updated_at: '2026-01-12T10:18:24+09:00'
+id: 7048084de73a2b6250c9
 organization_url_name: null
 slide: false
 ignorePublish: false

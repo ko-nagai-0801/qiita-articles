@@ -1,12 +1,12 @@
 ---
 title: 【超初心者】1分で伝わる自己紹介文テンプレ（ポートフォリオ用）
 tags:
+  - 初心者
   - ポートフォリオ
   - 文章術
-  - 初心者
 private: false
-updated_at: ""
-id: ""
+updated_at: '2026-01-12T12:02:08+09:00'
+id: 84cb7da992ba467dd237
 organization_url_name: null
 slide: false
 ignorePublish: false

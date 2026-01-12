@@ -1,12 +1,12 @@
 ---
 title: 【超初心者】技術スタックの見せ方（アイコン/文章の使い分け）
 tags:
-  - ポートフォリオ
-  - デザイン
+  - Design
   - 初心者
+  - ポートフォリオ
 private: false
-updated_at: ""
-id: ""
+updated_at: '2026-01-12T12:02:09+09:00'
+id: a73f743935fdc35201fb
 organization_url_name: null
 slide: false
 ignorePublish: false

@@ -1,12 +1,12 @@
 ---
 title: 【超初心者】採用目線で見るポートフォリオのNG集（回避ポイント付き）
 tags:
-  - ポートフォリオ
   - 初心者
+  - ポートフォリオ
   - 就活
 private: false
-updated_at: ""
-id: ""
+updated_at: '2026-01-12T12:02:09+09:00'
+id: 508f30debc947dedacfa
 organization_url_name: null
 slide: false
 ignorePublish: false

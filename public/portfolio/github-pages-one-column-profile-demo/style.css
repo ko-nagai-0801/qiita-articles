@@ -41,6 +41,21 @@ p {
   font-size: 14px;
 }
 
+.primary-cta {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 18px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.primary-cta:hover {
+  opacity: 0.9;
+}
+
 .skills {
   margin-top: 36px;
   text-align: left;
@@ -99,37 +114,43 @@ p {
   gap: 16px;
 }
 
-.work-cards article {
+.work-cards article,
+.work-card {
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 12px;
   background: #fff;
 }
 
-.work-cards img {
+.work-cards img,
+.work-card img {
   width: 100%;
   border-radius: 8px;
   display: block;
 }
 
-.work-cards h3 {
+.work-cards h3,
+.work-card h3 {
   margin: 12px 0 6px;
   font-size: 16px;
 }
 
-.work-cards p {
+.work-cards p,
+.work-card p {
   margin: 0 0 8px;
   font-size: 13px;
   color: #555;
 }
 
-.work-cards a {
+.work-cards a,
+.work-card a {
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
 }
 
-.work-cards a:hover {
+.work-cards a:hover,
+.work-card a:hover {
   text-decoration: underline;
 }
 

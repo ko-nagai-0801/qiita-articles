@@ -1,12 +1,12 @@
 ---
 title: 【超初心者】作品の改善ログの書き方（Before/Afterで伝える）
 tags:
+  - 初心者
   - ポートフォリオ
   - 文章術
-  - 初心者
 private: false
-updated_at: ""
-id: ""
+updated_at: '2026-01-12T11:09:55+09:00'
+id: 5f97545a9ec4077827db
 organization_url_name: null
 slide: false
 ignorePublish: false

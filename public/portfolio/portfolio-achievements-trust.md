@@ -1,12 +1,12 @@
 ---
 title: 【超初心者】ポートフォリオの信頼感を上げる実績の書き方（数字で語る）
 tags:
+  - 初心者
   - ポートフォリオ
   - 文章術
-  - 初心者
 private: false
-updated_at: ""
-id: ""
+updated_at: '2026-01-12T11:09:55+09:00'
+id: bbcda56565205771e8a3
 organization_url_name: null
 slide: false
 ignorePublish: false

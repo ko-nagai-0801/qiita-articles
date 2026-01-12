@@ -1,1 +1,0 @@
-portfolio/github-pages-one-column-profile.md

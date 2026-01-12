@@ -1,1 +1,0 @@
-portfolio/github-pages-profile-skill-section.md

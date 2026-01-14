@@ -205,4 +205,4 @@ ignorePublish: false
 
 - 【超初心者】自己紹介ページに作品紹介を追加する（画像＋説明＋リンク）  
   → 「できること」を見せたら、次は「作ったもの」を見せるとポートフォリオとして完成度が上がります。  
-  https://qiita.com/ko_nagai_0801/items/42adb3fa1f92001d7100
+  https://qiita.com/ko_nagai_0801/items/c238cc996a7bf8f58653

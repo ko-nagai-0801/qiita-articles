@@ -13,103 +13,117 @@ slide: false
 ignorePublish: false
 ---
 
-**作品が見られない最大の原因は「導線が弱い」ことです。**  
-CTA（行動ボタン）と配置を“型”で揃えれば、押されやすさが一気に上がります。
+**作品や実績があっても、「次に何をすればいいか」が分からないと離脱します。**  
+そこで、CTA（行動ボタン）を置いて、読み手を迷わせない導線を作ります。
 
 ---
 
-## この記事でやること（3行）
+## デモ / リポジトリ（関連リンク：公開後に差し替えOK）
 
-- CTA（行動ボタン）を作る
-- 置く場所を2か所にする
-- 文章を短くわかりやすくする
-
-## 対象読者
-
-- 1カラムのポートフォリオを作れた人
-- 作品をもっと見てもらいたい人
+- デモ（ポートフォリオ）：`https://ユーザー名.github.io/リポジトリ名/`
+- リポジトリ（GitHub）：`https://github.com/ユーザー名/リポジトリ名`
 
 ---
 
-## 0. そもそもCTAとは？
+## この記事でできるようになること（3行）
 
-CTA = **Call To Action（行動してもらうためのボタン/リンク）** です。  
-例：
-- 「作品を見る」
-- 「お問い合わせ」
-- 「GitHubを見る」
+- CTAの「置き場所」の型が分かる  
+- ボタンの文言を迷わず決められる  
+- すぐ使えるCTAブロックを実装できる  
 
 ---
 
-## 1. CTAは「2か所」に置く
+## 0. 先に結論（CTAは2か所でOK）
 
-**おすすめは「プロフィール下」と「フッター前」**です。  
-スクロールの途中と最後に置くと、押されやすくなります。
-
-### HTML（例）
-
-~~~html
-<a class="primary-cta" href="#works">作品を見る</a>
-~~~
+- **ファーストビュー直下**（最初に行動できる）
+- **ページ下部**（読み終わった後に行動できる）
 
 ---
 
-## 2. CTAの文は短く具体的に
+## 1. CTAの最小テンプレ（コピペOK）
 
-- NG：お問い合わせはこちら
-- OK：**作品を見る / GitHubを見る / 連絡する**
+```html
+<section class="cta" aria-label="導線">
+  <h2>まずはここから</h2>
+  <p>制作のご相談・お問い合わせは、下記からお願いします。</p>
 
-**動詞から始める**と行動されやすいです。
-
----
-
-## 3. 作品セクションへ「戻りやすく」する
-
-CTAのリンク先は **`#works`** のように、
-ページ内リンクを使うと迷いません。
-
-~~~html
-<section class="works" id="works">
-  <h2>Works</h2>
-  ...
+  <div class="cta__actions">
+    <a class="btn" href="mailto:yourname@example.com">メールで連絡</a>
+    <a class="btn btn-outline" href="https://github.com/ユーザー名" target="_blank" rel="noopener noreferrer">GitHubを見る</a>
+  </div>
 </section>
-~~~
+```
 
 ---
 
-## 4. CTAのデザイン（最低限）
+## 2. CSS（コピペOK）
 
-~~~css
-.primary-cta {
-  display: inline-block;
-  margin-top: 16px;
-  padding: 12px 18px;
-  background: #1d4ed8;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
+```css
+.cta {
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 12px;
+  background: #fff;
+  text-align: left;
 }
 
-.primary-cta:hover {
+.cta h2 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.cta p {
+  font-size: 13px;
+  margin: 0 0 12px;
   opacity: 0.9;
 }
-~~~
+
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+```
+
+> 既に07で `.btn` を定義している場合は、CTA側のボタンCSSはそのまま流用できます。
 
 ---
 
-## 5. よくある失敗
+## 3. CTA文言のおすすめ（迷ったらこれ）
 
-- **CTAが多すぎる**  
-  → 1つに絞る（「作品を見る」だけでOK）
+- **メールで連絡**
+- **GitHubを見る**
+- **作品を見る**
+- **見積もり相談**
+
+> 「次にやってほしい行動」をそのまま書くのが正解です。
+
+---
+
+## 4. よくあるつまずき
 
 - **CTAが目立たない**  
-  → 背景色を付ける、余白を増やす
+  → `border` を少し濃くする or `padding` を増やす
+
+- **ボタンが押しづらい**  
+  → `padding` を増やす（12px以上）
+
+- **リンクが不安**  
+  → 外部リンクは `rel="noopener noreferrer"` を付ける
 
 ---
 
 ## まとめ
 
-- CTAは「2か所」だけで効果が出る
-- 文は短く、動詞で始める
-- デザインはシンプルでOK
+- CTAは2か所（上と下）で十分  
+- 文言は「してほしい行動」をそのまま書く  
+- CTAがあるだけで離脱が減りやすい  
+
+---
+
+## 次に読む
+
+- 【超初心者】作品の改善ログの書き方（Before/Afterで伝える）  
+  → 導線が整ったら、次は「改善の積み上げ」を見せるとさらに信頼が上がります。  
+  https://qiita.com/ko_nagai_0801/items/5f97545a9ec4077827db

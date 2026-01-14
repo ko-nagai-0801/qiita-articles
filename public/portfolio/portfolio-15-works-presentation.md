@@ -13,116 +13,144 @@ slide: false
 ignorePublish: false
 ---
 
-**成果物は「何を作ったか」が一目で伝わると強いです。**  
-サムネ・説明文・リンクの3点を揃えて、見せ方を整えます。
+**成果物は「作った」だけだと伝わりません。**  
+最低限、**サムネ・説明文・リンク**の3点セットにするだけで、読み手が迷わなくなります。
 
 ---
 
-## この記事でやること（3行）
+## デモ / リポジトリ（関連リンク：公開後に差し替えOK）
 
-- 作品カードの構成を決める
-- 説明文を短く書くコツを知る
-- リンクの見せ方を揃える
-
-## 対象読者
-
-- 作品を2つ以上載せたい人
-- 見た目を整えたい人
+- デモ（ポートフォリオ）：`https://ユーザー名.github.io/リポジトリ名/`
+- リポジトリ（GitHub）：`https://github.com/ユーザー名/リポジトリ名`
 
 ---
 
-## 0. 作品カードの基本形
+## この記事でできるようになること（3行）
 
-**これだけあれば十分です。**
-
-- 画像（サムネ）
-- タイトル（1行）
-- 説明文（2行）
-- リンク（1つ）
+- 作品カードの「型」を作れる  
+- 説明文を短く・強く書ける  
+- リンク導線（デモ / GitHub）を迷わず置ける  
 
 ---
 
-## 1. HTMLの型
+## 0. 先に結論（成果物はこの順で見せる）
 
-~~~html
-<article class="work-card">
-  <img src="thumb-1.webp" alt="作品1のサムネイル" loading="lazy">
-  <h3>作品タイトル</h3>
-  <p>一言で特徴を書く。例：学習記録をまとめるWebサイト。</p>
-  <a href="https://example.com" target="_blank" rel="noopener">サイトを見る</a>
-</article>
-~~~
-
----
-
-## 2. 説明文の書き方（テンプレ）
-
-**「誰に / 何を / 何のために」**の順で書くと伝わります。
+**「何を作った → 何のために → どこが工夫」**  
+これを1〜2行でOKです。
 
 例：
-- **学習中の人向けに、HTMLの練習用ページを作りました。**
-- **採用担当向けに、制作物をまとめるポートフォリオです。**
+- 学習用に自己紹介ページを制作（HTML/CSS）。GitHub Pagesで公開し共有できる状態にした。
 
 ---
 
-## 3. サムネの作り方（最低限）
+## 1. 作品カードの最小テンプレ（コピペOK）
 
-- 横長（16:9）で揃える
-- 1枚は **横560px** 程度でOK
-- 画像が無い場合はダミーでも可
+```html
+<article class="work">
+  <img
+    src="thumb.webp"
+    alt="作品のサムネイル"
+    width="640"
+    height="360"
+    loading="lazy"
+  >
+  <div class="work__body">
+    <h3 class="work__title">作品タイトル</h3>
+    <p class="work__desc">
+      何を作ったか（誰に/何を/目的）を1〜2行で。
+    </p>
+    <div class="work__links">
+      <a href="https://example.com" target="_blank" rel="noopener noreferrer">デモを見る</a>
+      <a href="https://github.com/xxx" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </div>
+</article>
+```
 
 ---
 
-## 4. CSSの型
+## 2. CSSの最低限（コピペOK）
 
-~~~css
-.work-card {
-  border: 1px solid #e5e7eb;
+```css
+.work {
+  border: 1px solid rgba(0,0,0,0.08);
   border-radius: 12px;
-  padding: 12px;
+  overflow: hidden;
+  background: #fff;
 }
 
-.work-card img {
+.work img {
   width: 100%;
-  border-radius: 8px;
+  height: auto;
   display: block;
 }
 
-.work-card h3 {
-  margin: 12px 0 6px;
-  font-size: 16px;
+.work__body {
+  padding: 12px;
 }
 
-.work-card p {
-  margin: 0 0 8px;
+.work__title {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.work__desc {
+  margin: 0 0 10px;
   font-size: 13px;
-  color: #555;
+  opacity: 0.9;
 }
 
-.work-card a {
+.work__links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.work__links a {
   color: #1d4ed8;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 13px;
 }
-~~~
+
+.work__links a:hover {
+  text-decoration: underline;
+}
+```
 
 ---
 
-## 5. よくある失敗
+## 3. 説明文（1〜2行）を強くするコツ
 
-- **説明文が長すぎる**  
-  → 2行に収まる長さでOK
+### NG（抽象的）
+- 頑張って作りました
+- 学習しました
 
-- **リンクが多すぎる**  
-  → 1作品につき1リンクで十分
+### OK（具体）
+- **HTML/CSSの学習用に、1ページの自己紹介サイトを制作し公開**
+- **作品カード（画像＋説明＋リンク）を実装し、見やすさを改善**
 
-- **サムネのサイズがバラバラ**  
-  → 16:9 で統一する
+---
+
+## 4. チェックリスト（公開前）
+
+- [ ] サムネは重すぎない（100〜200KB目安）
+- [ ] 説明文は1〜2行で言い切っている
+- [ ] デモとGitHubのリンクがある
+- [ ] `target="_blank"` には `rel="noopener noreferrer"` を付けた
 
 ---
 
 ## まとめ
 
-- 作品カードの型を揃えるだけで整う
-- 説明文は短く、相手目線で書く
-- サムネはサイズ統一が最優先
+- 成果物は「サムネ・説明文・リンク」で伝わる  
+- 説明文は短く、具体的に  
+- リンク導線を揃えるだけで完成度が上がる  
+
+---
+
+## 次に読む
+
+- 【超初心者】ポートフォリオの導線改善（CTAと配置の型）  
+  → 成果物が揃ったら、次は「見せたい場所へ誘導する」導線を整えると強くなります。  
+  https://qiita.com/ko_nagai_0801/items/16e5c273e428f96e3e15

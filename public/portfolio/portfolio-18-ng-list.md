@@ -12,8 +12,8 @@ slide: false
 ignorePublish: false
 ---
 
-- デモ（GitHub Pages）：https://<username>.github.io/<repo>/
-- GitHub：https://github.com/<username>/<repo>
+- デモ（ポートフォリオ）：`https://ユーザー名.github.io/リポジトリ名/`
+- リポジトリ（GitHub）：`https://github.com/ユーザー名/リポジトリ名`
 
 ---
 

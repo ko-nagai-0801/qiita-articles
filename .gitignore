@@ -18,3 +18,6 @@ public/.remote/
 
 test.html
 test.md
+
+# Qiita CLIが生成しがちなID名md（publicに出たら事故なので無視）
+public/[0-9a-f]*.md

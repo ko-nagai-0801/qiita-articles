@@ -8,152 +8,77 @@
   </head>
   <body>
     <main class="profile">
-      <img class="avatar" src="https://placehold.jp/120x120.png" alt="プロフィール画像" loading="lazy">
+      <img class="avatar" src="https://placehold.jp/120x120.png" alt="プロフィール画像">
       <h1>あなたの名前</h1>
       <p>
         ここに自己紹介を書きます。<br>
         例：Web制作の学習中。HTML/CSSが楽しいです。
       </p>
-      <a class="primary-cta" href="#works">作品を見る</a>
 
-      <section class="about">
-        <h2>About</h2>
-        <p>
-          はじめまして、Web制作を学習中の山田です。<br>
-          HTML/CSSが得意で、学習記録サイトを制作しました。<br>
-          お仕事のご相談はTwitterのDMからお願いします。
-        </p>
-      </section>
+      <div class="links">
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X（Twitter）</a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
 
-      <section class="skills">
+      <section class="skills" aria-label="スキル一覧">
         <h2>Skills</h2>
-        <ul class="skill-cards">
-          <li>
+      
+        <ul class="skills-cards">
+          <li class="skill-card">
             <h3>HTML</h3>
             <p>基本構造を作れる</p>
           </li>
-          <li>
+          <li class="skill-card">
             <h3>CSS</h3>
             <p>見た目を整えられる</p>
           </li>
-          <li>
+          <li class="skill-card">
             <h3>JavaScript</h3>
             <p>簡単な動きを付けられる</p>
           </li>
-          <li>
+          <li class="skill-card">
             <h3>GitHub</h3>
             <p>push / Pages公開ができる</p>
           </li>
         </ul>
       </section>
 
-      <section class="stack">
-        <h2>Tech Stack</h2>
-        <div class="stack-badges">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-          <span>GitHub</span>
-        </div>
-      </section>
-
-      <section class="works" id="works">
+      <section class="works" aria-label="作品紹介">
         <h2>Works</h2>
-        <div class="work-cards">
-          <article class="work-card">
-            <img src="https://placehold.jp/560x320.png" alt="作品1のサムネイル" loading="lazy">
-            <h3>作品タイトル1</h3>
-            <p>一言で内容を説明します。例：学習記録をまとめるWebサイト。</p>
-            <a href="https://example.com" target="_blank" rel="noopener">サイトを見る</a>
-            <div class="improvement-log">
-              <h4>改善ログ</h4>
-              <ul>
-                <li>Before: 色が統一されていなかった → After: アクセント色を1色に固定</li>
-                <li>Before: 余白が狭い → After: 余白を広げた</li>
-              </ul>
+      
+        <ul class="works-list">
+          <li class="work-card">
+            <img
+              src="https://placehold.jp/640x360.png"
+              alt="作品のサムネイル"
+              width="640"
+              height="360"
+              loading="lazy"
+            >
+            <div class="work-body">
+              <h3>作品タイトル</h3>
+              <p>どんな作品かを1〜2行で説明します（誰に/何を/目的）。</p>
+              <a href="https://example.com" target="_blank" rel="noopener noreferrer">作品を見る</a>
             </div>
-          </article>
-          <article class="work-card">
-            <img src="https://placehold.jp/560x320.png" alt="作品2のサムネイル" loading="lazy">
-            <h3>作品タイトル2</h3>
-            <p>簡単に特徴を書きます。例：レスポンシブ対応のLP。</p>
-            <a href="https://example.com" target="_blank" rel="noopener">サイトを見る</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="timeline">
-        <h2>Timeline</h2>
-        <ol class="timeline-list">
-          <li>
-            <div class="time">2024.04</div>
-            <div class="content">HTML/CSSの学習を開始</div>
           </li>
-          <li>
-            <div class="time">2024.06</div>
-            <div class="content">初めての自己紹介ページを公開</div>
+      
+          <li class="work-card">
+            <img
+              src="https://placehold.jp/640x360.png"
+              alt="作品のサムネイル"
+              width="640"
+              height="360"
+              loading="lazy"
+            >
+            <div class="work-body">
+              <h3>作品タイトル2</h3>
+              <p>例：LP制作の練習として、シンプルな1ページサイトを作成。</p>
+              <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHubを見る</a>
+            </div>
           </li>
-          <li>
-            <div class="time">2024.08</div>
-            <div class="content">GitHub Pagesでポートフォリオ運用</div>
-          </li>
-        </ol>
-      </section>
-
-      <section class="achievements">
-        <h2>Achievements</h2>
-        <ul class="achievement-list">
-          <li>公開後1週間で閲覧300件</li>
-          <li>学習記録を30日連続で投稿</li>
-          <li>制作時間を5日→3日に短縮</li>
-          <li>Techイベント登壇（LT）</li>
         </ul>
       </section>
 
-      <section class="ng-list">
-        <h2>NG & Fix</h2>
-        <ul>
-          <li>説明が短すぎる → 1〜2行で目的を書く</li>
-          <li>リンク切れ → 公開前に全リンク確認</li>
-          <li>文字が小さい → 行間と余白を広げる</li>
-        </ul>
-      </section>
-
-      <section class="contact">
-        <h2>Contact</h2>
-        <p>お仕事のご相談や質問はこちらから。</p>
-        <form class="contact-form">
-          <label>
-            お名前
-            <input type="text" placeholder="山田 太郎">
-          </label>
-          <label>
-            メール
-            <input type="email" placeholder="example@mail.com">
-          </label>
-          <label>
-            内容
-            <textarea rows="4" placeholder="メッセージを書いてください"></textarea>
-          </label>
-          <button type="button">送信</button>
-        </form>
-        <a class="contact-cta" href="https://twitter.com/" target="_blank" rel="noopener">
-          DMする
-        </a>
-      </section>
-
-      <div class="links">
-        <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>
-        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-      </div>
     </main>
-    <footer class="site-footer">
-      <div class="footer-links">
-        <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>
-        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://note.com/" target="_blank" rel="noopener">note</a>
-      </div>
-      <small>© 2026 Your Name</small>
-    </footer>
   </body>
 </html>

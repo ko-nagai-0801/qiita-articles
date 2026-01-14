@@ -52,7 +52,7 @@ ignorePublish: false
 
 ## 1. HTMLにWorksセクションを追加する（コピペOK）
 
-`index.html` の `<main class="profile">` 内、スキル一覧の下あたりに追加してください。
+`index.html` の `<main class="profile">` 内、前回作成したスキル一覧の下に追加してください。
 
 ```html
 <section class="works" aria-label="作品紹介">

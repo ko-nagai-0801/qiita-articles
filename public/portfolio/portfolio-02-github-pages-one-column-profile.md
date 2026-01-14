@@ -25,7 +25,7 @@ HTML/CSSがほぼ初めてでも、コピペで動かしながらGitHub Pagesで
 
 ---
 
-## やること（3行）
+## やること
 
 - 1カラムの自己紹介ページをHTML/CSSで作る
 - GitHubにpushしてGitHub Pagesで公開する
@@ -63,12 +63,14 @@ HTML/CSSがほぼ初めてでも、コピペで動かしながらGitHub Pagesで
 ```html
 <!doctype html>
 <html lang="ja">
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>自己紹介ページ</title>
     <link rel="stylesheet" href="style.css">
   </head>
+
   <body>
     <main class="profile">
       <img class="avatar" src="https://placehold.jp/120x120.png" alt="プロフィール画像">
@@ -83,6 +85,7 @@ HTML/CSSがほぼ初めてでも、コピペで動かしながらGitHub Pagesで
         <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </main>
+
   </body>
 </html>
 ```
